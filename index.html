@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+     <script src="index.js"> </script>
+</head>
+    <input type="file" id="file-id" name="file_name" onchange="ExtractText();">
+	<!-- a container for the output -->
+	<div id="output"></div>
+    <br>
+<div > 
+        <img id="image" height="200" width="450" border="3">
+        <br>
+         
+        <br>
+    <button id="deletefile">deletefile</button
+        <br>
+        <h2>upload file and preview</h2>
+        <br>
+        <div class="chat-container">
+            <div id="chat-box"></div>
+            <input id="chat-input" type="text" placeholder="Type a message...">
+            <button id="chat-submit">Send</button>
+        </div>
+        <br>
+    <h3>created by deepak aggarwal for sample</h3>
+    <br>
+    <h3>contact at :8168173141</h3>
+<script> 
+    function imagePreview(event) {
+        let image=document.getElementById('image');
+        let file=document.getElementById('file');
+        var fname=image.value;
+        image.src=URL.createObjectURL(event.target.files[0]);
+        console.log(file.value);
+        alert("thanks for uploading file");    }
+     let deletefile=document.getElementById('deletefile');
+     let image=document.getElementById('image');
+     deletefile.addEventListener('click',function () {
+        image.parentNode.removeChild(image);
+        alert("aap to bada bashram ho delete kardi photo");
+     });
+     class AIAssistant {
+    constructor() {
+        this.chatBox = document.getElementById('chat-box');
+        this.chatInput = document.getElementById('chat-input');
+        this.chatSubmit = document.getElementById('chat-submit');
+
+        this.chatSubmit.addEventListener('click', () => {
+            this.processUserInput();
+        });
+    }
+
+    processUserInput() {
+        const userInput = this.chatInput.value.trim();
+
+        if (userInput !== '') {
+            this.chatBox.innerHTML += `<p>You: ${userInput}</p>`;
+            this.chatInput.value = '';
+
+            const response = this.generateResponse(userInput);
+            this.chatBox.innerHTML+= `<p>Assistant: ${response}</p>`;
+        }
+    }
+
+    generateResponse(userInput) {
+        if (userInput.includes('hello') || userInput.includes('hi')) {
+            return 'Hello! How can I assist you today?';
+        } else if (userInput.includes('how are you')) {
+            return 'I\'m doing well, thank you for asking!';
+        } else if(userInput.includes('what are you doing')){
+            return 'I\'m chating with you,thanks';
+        } else if(userInput.includes('what is your friend')){
+            return 'I\'ve no riend';
+        }
+        else if(userInput.includes('is your girlfriend')){
+            return 'I have no girlfriend';
+        }
+        else if(userInput.includes('send a pic')){
+            return 'sorry';
+        }
+        else{
+            return 'I\'m not sure I understand. Can you please rephrase?';
+        }
+    }
+}
+const assistant = new AIAssistant();
+</script>
+<style>
+    body{
+        background-color: deeppink;
+    }
+    #image{
+        border: color(srgb red green blue);
+    }
+    .cent{
+         display: flex;
+        align-items: left;  
+           
+        height: 560cm;
+        width: 400cm;
+    }
+    @media screen and(width:500px){
+        body{         
+            background-color: aquamarine;
+        }
+    }
+    @media screen and (width:767px){
+        body{
+            background-color: yellow;
+        }
+    }
+    @media screen and (width:600px){
+        body{
+            background-color: azure;
+        }
+    }
+    .chat-container {
+        width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #chat-box {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 300px;
+    }
+    
+    #chat-input {
+        width: 70%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    }
+    
+    #chat-submit {
+        width: 30%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    #chat-submit:hover {
+        background-color: #3e8e41;
+    }
+</style>
+</body>
+</html>
